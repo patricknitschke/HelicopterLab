@@ -8,7 +8,7 @@ LQR_d5p1;
 A = zeros(6,6); 
 B = zeros(6,2); 
 C = zeros(5,6); 
-D = 0;
+D = zeros(5,2);
 
 A(1,2) = 1; 
 A(3,4) = 1; 
@@ -37,7 +37,7 @@ C_d = sys_disc.C;
 Q_d = zeros(6, 6);
 
 % Measurement noise
-Noise_flying_still = load('Noise_flying_still.mat');
+Noise_flying_still = load('Noise_flying_still_final.mat');
 Noise_flying_still_vals = Noise_flying_still.Noise_flying_still(:, 10000:end); % remove incorrect start data
 IMU_timestamp = Noise_flying_still_vals(1,:);
 IMU_pitch_r = Noise_flying_still_vals(2,:);
