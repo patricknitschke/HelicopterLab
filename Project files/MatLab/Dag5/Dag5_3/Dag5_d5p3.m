@@ -1,6 +1,6 @@
 %% Day 5
-init_heli_d5p1;
-LQR_d5p1;
+init_heli_d5p3;
+LQR_d5p3;
 
 %% Task 5.1 - Discretisation
 
@@ -34,10 +34,9 @@ B_d = sys_disc.B;
 C_d = sys_disc.C;
 
 %% Find stochastic variables Q_d and R_d
-Q_d = zeros(6, 6);
 
 % Measurement noise
-Noise_flying_still = load('Noise_flying_still.mat');
+Noise_flying_still = load('Noise_flying_still_final.mat');
 Noise_flying_still_vals = Noise_flying_still.Noise_flying_still(:, 10000:end); % remove incorrect start data
 IMU_timestamp = Noise_flying_still_vals(1,:);
 IMU_pitch_r = Noise_flying_still_vals(2,:);
@@ -57,5 +56,15 @@ Noise_flying_vals_no_time(1,:) = [];
 
 % Find R_d
 R_d = cov(Noise_flying_vals_no_time.', 'omitrows');
+
+% Test out different
+Q_d_p = 0;
+Q_d_pdot = 0;
+Q_d_e = 0;
+Q_d_edot = 0;
+Q_d_l = 0;
+Q_d_ldot = 0;
+
+Q_d = diag([Q_d_p Q_d_pdot Q_d_e Q_d_edot Q_d_l Q_d_ldot]);
 
 

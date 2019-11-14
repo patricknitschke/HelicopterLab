@@ -1,6 +1,6 @@
 %% Day 5
-init_heli_d5p1;
-LQR_d5p1;
+init_heli_d5p2;
+LQR_d5p2;
 
 %% Task 5.1 - Discretisation
 
@@ -37,7 +37,7 @@ C_d = sys_disc.C;
 Q_d = zeros(6, 6);
 
 % Measurement noise
-Noise_flying_still = load('Noise_flying_still.mat');
+Noise_flying_still = load('Noise_flying_still_final.mat');
 Noise_flying_still_vals = Noise_flying_still.Noise_flying_still(:, 10000:end); % remove incorrect start data
 IMU_timestamp = Noise_flying_still_vals(1,:);
 IMU_pitch_r = Noise_flying_still_vals(2,:);
