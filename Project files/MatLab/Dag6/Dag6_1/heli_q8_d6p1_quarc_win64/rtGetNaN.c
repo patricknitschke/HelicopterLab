@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d6p1".
  *
- * Model version              : 1.117
+ * Model version              : 1.125
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Nov 08 17:20:29 2019
+ * C source code generated on : Thu Nov 14 03:19:40 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

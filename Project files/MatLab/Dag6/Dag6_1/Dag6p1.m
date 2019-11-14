@@ -1,6 +1,6 @@
 %% Day 5
-init_heli_d5p3;
-LQR_d5p3;
+init_heli_d6p1;
+LQR_d6p1;
 
 %% Task 5.1 - Discretisation
 
@@ -70,7 +70,7 @@ Q_d = diag([Q_d_p Q_d_pdot Q_d_e Q_d_edot Q_d_l Q_d_ldot]);
 
 %% Lab 6 - Correction step
 
-K = zeros(6, 5);
+K = zeros(6, 5); % fixed in Matlab function block
 
 
 

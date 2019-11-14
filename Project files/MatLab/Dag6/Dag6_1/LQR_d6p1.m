@@ -26,7 +26,7 @@ r_edot = 0.1;
 
 Q = diag([q_p q_pdot q_edot q_gamma q_zeta]);
 R = diag([r_p r_edot]);
-K = lqr(A, B, Q, R);
+K_feedback = lqr(A, B, Q, R);
 
 %Reference feed-forward
 F = [0 1; 1 0];     % based off 3.2
@@ -37,7 +37,7 @@ R_r(4,1) = -1;
 R_r(5,2) = -1;
 
 % Attempting to find feed-forward gain analytically
-LOOK_Coeff_F = C*inv(B*K-A)*B;          % = 0 coeff. for F
-LOOK_Identity = C*inv(B*K-A)*R_r;       % = I
+LOOK_Coeff_F = C*inv(B*K_feedback-A)*B;          % = 0 coeff. for F
+LOOK_Identity = C*inv(B*K_feedback-A)*R_r;       % = I
 
  

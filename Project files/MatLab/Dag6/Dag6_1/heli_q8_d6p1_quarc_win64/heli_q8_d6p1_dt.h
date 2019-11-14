@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d6p1".
  *
- * Model version              : 1.117
+ * Model version              : 1.125
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Nov 08 17:20:29 2019
+ * C source code generated on : Thu Nov 14 03:19:40 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -80,14 +80,14 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&heli_q8_d6p1_B.A_d[0]), 0, 0, 284 },
+  { (char_T *)(&heli_q8_d6p1_B.UnitDelay1[0]), 0, 0, 283 },
 
   { (char_T *)(&heli_q8_d6p1_B.StreamCall1_o2), 3, 0, 1 },
 
   { (char_T *)(&heli_q8_d6p1_B.StreamRead1_o3), 8, 0, 1 }
   ,
 
-  { (char_T *)(&heli_q8_d6p1_DW.UnitDelay_DSTATE[0]), 0, 0, 110 },
+  { (char_T *)(&heli_q8_d6p1_DW.UnitDelay1_DSTATE[0]), 0, 0, 110 },
 
   { (char_T *)(&heli_q8_d6p1_DW.StreamCall1_Stream), 14, 0, 1 },
 
@@ -97,13 +97,13 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&heli_q8_d6p1_DW.HILReadEncoderTimebase_Task), 24, 0, 1 },
 
-  { (char_T *)(&heli_q8_d6p1_DW.Estimatedstate_PWORK.FilePtr), 11, 0, 27 },
+  { (char_T *)(&heli_q8_d6p1_DW.e_PWORK.LoggedData[0]), 11, 0, 37 },
 
   { (char_T *)(&heli_q8_d6p1_DW.HILInitialize_ClockModes[0]), 6, 0, 46 },
 
   { (char_T *)(&heli_q8_d6p1_DW.HILInitialize_POSortedChans[0]), 7, 0, 8 },
 
-  { (char_T *)(&heli_q8_d6p1_DW.Estimatedstate_IWORK.Count), 10, 0, 2 },
+  { (char_T *)(&heli_q8_d6p1_DW.noisetofile_IWORK.Count), 10, 0, 1 },
 
   { (char_T *)(&heli_q8_d6p1_DW.StreamCall1_State), 3, 0, 1 }
 };
@@ -124,7 +124,7 @@ static DataTypeTransition rtPTransitions[] = {
 
   { (char_T *)(&heli_q8_d6p1_P.HILInitialize_active), 8, 0, 35 },
 
-  { (char_T *)(&heli_q8_d6p1_P.Constant2_Value), 0, 0, 96 },
+  { (char_T *)(&heli_q8_d6p1_P.Constant2_Value), 0, 0, 94 },
 
   { (char_T *)(&heli_q8_d6p1_P.StreamCall1_SendBufferSize), 6, 0, 2 },
 
@@ -132,7 +132,7 @@ static DataTypeTransition rtPTransitions[] = {
 
   { (char_T *)(&heli_q8_d6p1_P.GameController_BufferSize), 5, 0, 1 },
 
-  { (char_T *)(&heli_q8_d6p1_P._CurrentSetting), 3, 0, 260 },
+  { (char_T *)(&heli_q8_d6p1_P.StringConstant_Value[0]), 3, 0, 258 },
 
   { (char_T *)(&heli_q8_d6p1_P.HILReadEncoderTimebase_Active), 8, 0, 5 }
 };

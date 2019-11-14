@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d6p1".
  *
- * Model version              : 1.117
+ * Model version              : 1.125
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Nov 08 17:20:29 2019
+ * C source code generated on : Thu Nov 14 03:19:40 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,63 +24,70 @@
 /* Block parameters (auto storage) */
 P_heli_q8_d6p1_T heli_q8_d6p1_P = {
   /*  Variable: A_d
-   * Referenced by: '<Root>/A_d'
+   * Referenced by: '<S5>/A_d'
    */
-  { 1.0, 0.0, 0.0, 0.0, 1.0975134460986827E-6, 0.0010975134460986826, 0.002, 1.0,
-    0.0, 0.0, 7.3167563073245507E-10, 1.0975134460986827E-6, 0.0, 0.0, 1.0, 0.0,
+  { 1.0, 0.0, 0.0, 0.0, 1.2234780575259187E-6, 0.0012234780575259186, 0.002, 1.0,
+    0.0, 0.0, 8.1565203835061226E-10, 1.2234780575259187E-6, 0.0, 0.0, 1.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.002, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.002, 1.0 },
 
   /*  Variable: B_d
-   * Referenced by: '<Root>/B_d'
+   * Referenced by: '<S5>/B_d'
    */
-  { 0.0, 0.0, 1.6347761471298535E-6, 0.0016347761471298536, 0.0, 0.0,
-    1.015873015873016E-5, 0.01015873015873016, 0.0, 0.0, 1.858223824082424E-12,
-    3.71644764816485E-9 },
+  { 0.0, 0.0, 1.8224038640163491E-7, 0.00018224038640163491, 0.0, 0.0,
+    1.1324675324675329E-6, 0.001132467532467533, 0.0, 0.0,
+    2.3092486280575776E-13, 4.6184972561151568E-10 },
 
   /*  Variable: C_d
-   * Referenced by: '<Root>/C_d'
+   * Referenced by: '<S5>/C_d'
    */
   { 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0,
     0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0 },
 
   /*  Variable: F
-   * Referenced by: '<S10>/F*r'
+   * Referenced by: '<S12>/F*r'
    */
   { 0.0, 1.0, 1.0, 0.0 },
-  1.0,                                 /* Variable: Joystick_gain_x
-                                        * Referenced by: '<S6>/Joystick_gain_x'
+  3.0,                                 /* Variable: Joystick_gain_x
+                                        * Referenced by: '<S4>/Joystick_gain_x'
                                         */
-  1.0,                                 /* Variable: Joystick_gain_y
-                                        * Referenced by: '<S6>/Joystick_gain_y'
+  6.0,                                 /* Variable: Joystick_gain_y
+                                        * Referenced by: '<S4>/Joystick_gain_y'
                                         */
 
   /*  Variable: K
-   * Referenced by: '<Root>/K'
+   * Referenced by: '<S5>/K'
    */
   { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
 
-  /*  Variable: K_x
-   * Referenced by: '<S10>/K*x'
+  /*  Variable: K_feedback
+   * Referenced by: '<S12>/K*x'
    */
-  { -1.308644110547333E-16, 2.083969832826063, -6.6485722658124348E-17,
-    1.4214651320645415, 2.1537856919931397, -2.8920617783327955E-16,
-    -1.5517096687647463E-17, 0.99999999999999933, 1.1952286093343936,
-    -3.4278689865488897E-16 },
+  { -6.519933006842733E-16, 25.390745000307735, 1.5274399390649818E-16,
+    12.234496583532275, 18.425262983308468, 9.49172778295734E-16,
+    -2.1129477259080611E-15, 10.000000000000027, 10.000000000000004,
+    -9.7029638273710227E-16 },
 
   /*  Variable: Q_d
-   * Referenced by: '<Root>/Q_d'
+   * Referenced by: '<S5>/Q_d'
    */
   { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
 
   /*  Variable: R_d
-   * Referenced by: '<Root>/R_d'
+   * Referenced by: '<S5>/R_d'
    */
-  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+  { 0.050987692244565376, -0.037791413118610208, 0.0013038920360682086,
+    -0.028426309836295474, -0.10674807366171556, -0.037791413118610208,
+    0.20711164180181157, 0.00027124806460138677, -0.03943730680451922,
+    0.1391657474938606, 0.0013038920360682086, 0.00027124806460138677,
+    0.00052629343281422223, -0.0013700558305120986, -0.00031176397837469409,
+    -0.028426309836295474, -0.03943730680451922, -0.0013700558305120986,
+    0.14538063673875629, 0.085194536535827717, -0.10674807366171556,
+    0.1391657474938606, -0.00031176397837469409, 0.085194536535827717,
+    0.49307322902105949 },
   10.0,                                /* Mask Parameter: HILInitialize_analog_input_maxi
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
@@ -133,7 +140,7 @@ P_heli_q8_d6p1_T heli_q8_d6p1_P = {
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
   0,                                   /* Mask Parameter: HILReadEncoderTimebase_clock
-                                        * Referenced by: '<S4>/HIL Read Encoder Timebase'
+                                        * Referenced by: '<S2>/HIL Read Encoder Timebase'
                                         */
 
   /*  Mask Parameter: HILInitialize_hardware_clocks
@@ -170,12 +177,12 @@ P_heli_q8_d6p1_T heli_q8_d6p1_P = {
   { 0U, 1U, 2U, 3U, 4U, 5U, 6U, 7U },
 
   /*  Mask Parameter: HILReadEncoderTimebase_channels
-   * Referenced by: '<S4>/HIL Read Encoder Timebase'
+   * Referenced by: '<S2>/HIL Read Encoder Timebase'
    */
   { 0U, 1U, 2U },
 
   /*  Mask Parameter: HILWriteAnalog_channels
-   * Referenced by: '<S4>/HIL Write Analog'
+   * Referenced by: '<S2>/HIL Write Analog'
    */
   { 0U, 1U },
 
@@ -192,7 +199,7 @@ P_heli_q8_d6p1_T heli_q8_d6p1_P = {
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
   500U,                                /* Mask Parameter: HILReadEncoderTimebase_samples_
-                                        * Referenced by: '<S4>/HIL Read Encoder Timebase'
+                                        * Referenced by: '<S2>/HIL Read Encoder Timebase'
                                         */
   0,                                   /* Mask Parameter: HILInitialize_active
                                         * Referenced by: '<Root>/HIL Initialize'
@@ -300,155 +307,143 @@ P_heli_q8_d6p1_T heli_q8_d6p1_P = {
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
   0.0,                                 /* Expression: NaN
-                                        * Referenced by: '<S5>/Constant2'
+                                        * Referenced by: '<S9>/Constant2'
                                         */
 
   /*  Expression: [0;0;-0.55;0;0;0]
-   * Referenced by: '<Root>/Unit Delay'
+   * Referenced by: '<S5>/Unit Delay1'
    */
   { 0.0, 0.0, -0.55, 0.0, 0.0, 0.0 },
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S6>/Rate Transition: x'
-                                        */
-  -0.1,                                /* Expression: -0.1
-                                        * Referenced by: '<S6>/Dead Zone: x'
-                                        */
-  0.1,                                 /* Expression: 0.1
-                                        * Referenced by: '<S6>/Dead Zone: x'
-                                        */
-  1.1111111111111112,                  /* Expression: 10/9
-                                        * Referenced by: '<S6>/Gain: x'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S6>/Rate Transition: y'
-                                        */
-  -0.1,                                /* Expression: -0.1
-                                        * Referenced by: '<S6>/Dead Zone: y'
-                                        */
-  0.1,                                 /* Expression: 0.1
-                                        * Referenced by: '<S6>/Dead Zone: y'
-                                        */
-  1.1111111111111112,                  /* Expression: 10/9
-                                        * Referenced by: '<S6>/Gain: y'
-                                        */
-  0.085,                               /* Expression: 0.085
-                                        * Referenced by: '<S4>/offset p '
-                                        */
-  -0.0015339807878856412,              /* Expression: -2*pi /4096
-                                        * Referenced by: '<S4>/Pitch: Count to rad'
-                                        */
-  -50.0,                               /* Computed Parameter: PitchTransferFcn_A
-                                        * Referenced by: '<S4>/Pitch: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: PitchTransferFcn_C
-                                        * Referenced by: '<S4>/Pitch: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: PitchTransferFcn_D
-                                        * Referenced by: '<S4>/Pitch: Transfer Fcn'
-                                        */
-  -0.55,                               /* Expression: -0.55
-                                        * Referenced by: '<S4>/offset e '
-                                        */
-  -0.0015339807878856412,              /* Expression: -2 * pi /4096
-                                        * Referenced by: '<S4>/Elevation: Count to rad'
-                                        */
-  -50.0,                               /* Computed Parameter: ElevationTransferFcn_A
-                                        * Referenced by: '<S4>/Elevation: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: ElevationTransferFcn_C
-                                        * Referenced by: '<S4>/Elevation: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: ElevationTransferFcn_D
-                                        * Referenced by: '<S4>/Elevation: Transfer Fcn'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S9>/0'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S11>/Integrator'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S9>/1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S5>/Constant'
+                                        * Referenced by: '<S9>/Constant'
                                         */
   65.0,                                /* Expression: 65
-                                        * Referenced by: '<S5>/Constant1'
+                                        * Referenced by: '<S9>/Constant1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S4>/Rate Transition: x'
+                                        */
+  -0.1,                                /* Expression: -0.1
+                                        * Referenced by: '<S4>/Dead Zone: x'
+                                        */
+  0.1,                                 /* Expression: 0.1
+                                        * Referenced by: '<S4>/Dead Zone: x'
+                                        */
+  1.1111111111111112,                  /* Expression: 10/9
+                                        * Referenced by: '<S4>/Gain: x'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S4>/Rate Transition: y'
+                                        */
+  -0.1,                                /* Expression: -0.1
+                                        * Referenced by: '<S4>/Dead Zone: y'
+                                        */
+  0.1,                                 /* Expression: 0.1
+                                        * Referenced by: '<S4>/Dead Zone: y'
+                                        */
+  1.1111111111111112,                  /* Expression: 10/9
+                                        * Referenced by: '<S4>/Gain: y'
+                                        */
+  0.095,                               /* Expression: 0.095
+                                        * Referenced by: '<S2>/Constant2'
+                                        */
+  -0.0015339807878856412,              /* Expression: -2*pi /4096
+                                        * Referenced by: '<S2>/Pitch: Count to rad'
+                                        */
+  -50.0,                               /* Computed Parameter: PitchTransferFcn_A
+                                        * Referenced by: '<S2>/Pitch: Transfer Fcn'
+                                        */
+  -2500.0,                             /* Computed Parameter: PitchTransferFcn_C
+                                        * Referenced by: '<S2>/Pitch: Transfer Fcn'
+                                        */
+  50.0,                                /* Computed Parameter: PitchTransferFcn_D
+                                        * Referenced by: '<S2>/Pitch: Transfer Fcn'
+                                        */
+  -0.53,                               /* Expression: -0.53
+                                        * Referenced by: '<S2>/Constant1'
+                                        */
+  -0.0015339807878856412,              /* Expression: -2 * pi /4096
+                                        * Referenced by: '<S2>/Elevation: Count to rad'
+                                        */
+  -50.0,                               /* Computed Parameter: ElevationTransferFcn_A
+                                        * Referenced by: '<S2>/Elevation: Transfer Fcn'
+                                        */
+  -2500.0,                             /* Computed Parameter: ElevationTransferFcn_C
+                                        * Referenced by: '<S2>/Elevation: Transfer Fcn'
+                                        */
+  50.0,                                /* Computed Parameter: ElevationTransferFcn_D
+                                        * Referenced by: '<S2>/Elevation: Transfer Fcn'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Integrate -> [gamma,zeta]'
                                         */
 
   /*  Expression: [ 0, 0, 1; 0, 1, 0; -1, 0, 0]
-   * Referenced by: '<S5>/Gain1'
+   * Referenced by: '<S9>/Gain1'
    */
   { 0.0, 0.0, -1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0 },
   0.00076699039394282058,              /* Expression: 2*pi/8192
-                                        * Referenced by: '<S4>/Travel: Count to rad'
+                                        * Referenced by: '<S2>/Travel: Count to rad'
                                         */
 
   /*  Expression: [ 0, 0, 1; 0, 1, 0; -1, 0, 0]
-   * Referenced by: '<S5>/Gain2'
+   * Referenced by: '<S9>/Gain2'
    */
   { 0.0, 0.0, -1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0 },
 
   /*  Expression: [0 0 0 0 0 0;0 0 0 0 0 0;0 0 0 0 0 0;0 0 0 0 0 0;0 0 0 0 0 0;0 0 0 0 0 0]
-   * Referenced by: '<Root>/Unit Delay1'
+   * Referenced by: '<S5>/Unit Delay2'
    */
   { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
   -50.0,                               /* Computed Parameter: TravelTransferFcn_A
-                                        * Referenced by: '<S4>/Travel: Transfer Fcn'
+                                        * Referenced by: '<S2>/Travel: Transfer Fcn'
                                         */
   -2500.0,                             /* Computed Parameter: TravelTransferFcn_C
-                                        * Referenced by: '<S4>/Travel: Transfer Fcn'
+                                        * Referenced by: '<S2>/Travel: Transfer Fcn'
                                         */
   50.0,                                /* Computed Parameter: TravelTransferFcn_D
-                                        * Referenced by: '<S4>/Travel: Transfer Fcn'
+                                        * Referenced by: '<S2>/Travel: Transfer Fcn'
                                         */
 
-  /*  Expression: [V_s0, 0]
-   * Referenced by: '<S7>/V_s0'
+  /*  Expression: [V_s0, V_d0]
+   * Referenced by: '<S6>/V_s0'
    */
-  { 0.7, 0.0 },
-  5.0,                                 /* Expression: 5
+  { 7.0, -1.6 },
+  0.5,                                 /* Expression: 0.5
                                         * Referenced by: '<S1>/Back gain'
                                         */
-  5.0,                                 /* Expression: 5
+  0.5,                                 /* Expression: 0.5
                                         * Referenced by: '<S1>/Front gain'
                                         */
   5.0,                                 /* Expression: 5
-                                        * Referenced by: '<S4>/Front motor: Saturation'
+                                        * Referenced by: '<S2>/Front motor: Saturation'
                                         */
   -5.0,                                /* Expression: -5
-                                        * Referenced by: '<S4>/Front motor: Saturation'
+                                        * Referenced by: '<S2>/Front motor: Saturation'
                                         */
   5.0,                                 /* Expression: 5
-                                        * Referenced by: '<S4>/Back motor: Saturation'
+                                        * Referenced by: '<S2>/Back motor: Saturation'
                                         */
   -5.0,                                /* Expression: -5
-                                        * Referenced by: '<S4>/Back motor: Saturation'
+                                        * Referenced by: '<S2>/Back motor: Saturation'
                                         */
   8000,                                /* Computed Parameter: StreamCall1_SendBufferSize
-                                        * Referenced by: '<S5>/Stream Call1'
+                                        * Referenced by: '<S9>/Stream Call1'
                                         */
   8000,                                /* Computed Parameter: StreamCall1_ReceiveBufferSize
-                                        * Referenced by: '<S5>/Stream Call1'
+                                        * Referenced by: '<S9>/Stream Call1'
                                         */
   80U,                                 /* Computed Parameter: StreamFormattedWrite_MaxUnits
-                                        * Referenced by: '<S5>/Stream Formatted Write'
+                                        * Referenced by: '<S9>/Stream Formatted Write'
                                         */
   12U,                                 /* Computed Parameter: GameController_BufferSize
-                                        * Referenced by: '<S6>/Game Controller'
-                                        */
-  1U,                                  /* Computed Parameter: _CurrentSetting
-                                        * Referenced by: '<S9>/..'
-                                        */
-  1U,                                  /* Computed Parameter: _CurrentSetting_a
-                                        * Referenced by: '<S9>/.'
+                                        * Referenced by: '<S4>/Game Controller'
                                         */
 
   /*  Expression: value
-   * Referenced by: '<S5>/String Constant'
+   * Referenced by: '<S9>/String Constant'
    */
   { 115U, 101U, 114U, 105U, 97U, 108U, 58U, 47U, 47U, 73U, 77U, 85U, 58U, 51U,
     63U, 98U, 97U, 117U, 100U, 61U, 49U, 49U, 53U, 50U, 48U, 48U, 44U, 119U,
@@ -466,27 +461,27 @@ P_heli_q8_d6p1_T heli_q8_d6p1_P = {
     0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U,
     0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U },
   0U,                                  /* Expression: uri_argument
-                                        * Referenced by: '<S5>/Stream Call1'
+                                        * Referenced by: '<S9>/Stream Call1'
                                         */
   1U,                                  /* Computed Parameter: StreamCall1_Endian
-                                        * Referenced by: '<S5>/Stream Call1'
+                                        * Referenced by: '<S9>/Stream Call1'
                                         */
   1U,                                  /* Computed Parameter: GameController_ControllerNumber
-                                        * Referenced by: '<S6>/Game Controller'
+                                        * Referenced by: '<S4>/Game Controller'
                                         */
   1,                                   /* Computed Parameter: HILReadEncoderTimebase_Active
-                                        * Referenced by: '<S4>/HIL Read Encoder Timebase'
+                                        * Referenced by: '<S2>/HIL Read Encoder Timebase'
                                         */
   0,                                   /* Computed Parameter: StreamCall1_Active
-                                        * Referenced by: '<S5>/Stream Call1'
+                                        * Referenced by: '<S9>/Stream Call1'
                                         */
   0,                                   /* Computed Parameter: HILWriteAnalog_Active
-                                        * Referenced by: '<S4>/HIL Write Analog'
+                                        * Referenced by: '<S2>/HIL Write Analog'
                                         */
   0,                                   /* Computed Parameter: GameController_AutoCenter
-                                        * Referenced by: '<S6>/Game Controller'
+                                        * Referenced by: '<S4>/Game Controller'
                                         */
   1                                    /* Computed Parameter: GameController_Enabled
-                                        * Referenced by: '<S6>/Game Controller'
+                                        * Referenced by: '<S4>/Game Controller'
                                         */
 };
