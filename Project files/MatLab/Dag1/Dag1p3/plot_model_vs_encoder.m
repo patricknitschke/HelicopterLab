@@ -13,7 +13,7 @@ encoder_lambda = model_vs_encoder_linpoint_vals(7,:);
 
 figure(1);
 x_start = 0;
-x_stop = 120;
+x_stop = 8;
 
 %plot pitch rate
 subplot(3,1,1);
@@ -25,7 +25,7 @@ grid on;
 xlabel('Time [s]');
 ylabel('Pitch [rad]');
 l = legend('Encoder pitch','Model pitch');
-%xlim([x_start, x_stop]);
+xlim([x_start, x_stop]);
 title('Pitch comparison, Lin. Point');
 
 %plot elevation
@@ -38,7 +38,7 @@ grid on;
 xlabel('Time [s]');
 ylabel('Elevation [rad]');
 l = legend('Encoder pitch','Model pitch');
-%xlim([x_start, x_stop]);
+xlim([x_start, x_stop]);
 title('Elevation comparison, Lin. Point');
 
 %plot lambda
@@ -51,7 +51,7 @@ grid on;
 xlabel('Time [s]');
 ylabel('Travel [rad]');
 l = legend('Encoder pitch','Model pitch');
-%xlim([x_start, x_stop]);
+xlim([x_start, x_stop]);
 title('Travel comparison, Lin. Point');
 
 %% start on table
@@ -68,8 +68,6 @@ encoder_e_t = model_vs_encoder_table_vals(6,:);
 encoder_lambda_t = model_vs_encoder_table_vals(7,:);
 
 figure(2);
-x_start = 0;
-x_stop = 120;
 
 %plot pitch rate
 subplot(3,1,1);
@@ -81,31 +79,31 @@ grid on;
 xlabel('Time [s]');
 ylabel('Pitch [rad]');
 l = legend('Encoder pitch','Model pitch');
-%xlim([x_start, x_stop]);
+xlim([x_start, x_stop]);
 title('Pitch comparison, Table');
 
 %plot elevation
 subplot(3,1,2);
 
-plot(timestamp, encoder_e,'r');
+plot(timestamp_t, encoder_e_t,'r');
 hold on;
-plot(timestamp, model_e,'b');
+plot(timestamp_t, model_e_t,'b');
 grid on;
 xlabel('Time [s]');
 ylabel('Elevation [rad]');
 l = legend('Encoder pitch','Model pitch');
-%xlim([x_start, x_stop]);
+xlim([x_start, x_stop]);
 title('Elevation comparison, Table');
 
 %plot lambda
 subplot(3,1,3);
 
-plot(timestamp, encoder_lambda,'r');
+plot(timestamp_t, encoder_lambda_t,'r');
 hold on;
-plot(timestamp, model_lambda,'b');
+plot(timestamp_t, model_lambda_t,'b');
 grid on;
 xlabel('Time [s]');
 ylabel('Travel [rad]');
 l = legend('Encoder pitch','Model pitch');
-%xlim([x_start, x_stop]);
+xlim([x_start, x_stop]);
 title('Travel comparison, Table');
