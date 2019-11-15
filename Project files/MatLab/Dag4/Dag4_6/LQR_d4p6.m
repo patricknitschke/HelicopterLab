@@ -17,7 +17,7 @@ C(1,1) = 1;
 C(2,3) = 1;
 
 % LQR regulator
-q_p = 20;
+q_p = 40;
 q_pdot = 6;
 q_edot = 12;
 q_gamma = 10;
