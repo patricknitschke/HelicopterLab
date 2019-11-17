@@ -89,7 +89,7 @@ IMU_elevation = Noise_flying_still_vals(6,:);
 
 figure(1);
 x_start = 020;
-x_stop = 240;
+x_stop = 275;
 
 %plot pitch rate
 subplot(5,1,1);
@@ -100,7 +100,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Pitch rate [rad/s]');
 xlim([x_start, x_stop]);
-title('IMU Pitch rate - Flying still');
+title('IMU Pitch rate');
 
 %plot elevation rate
 subplot(5,1,2);
@@ -111,7 +111,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Elevation rate [rad/s]');
 xlim([x_start, x_stop]);
-title('IMU Elevation rate - Flying still');
+title('IMU Elevation rate');
 
 %plot lambda rate
 subplot(5,1,3);
@@ -122,7 +122,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Travel rate [rad/s]');
 xlim([x_start, x_stop]);
-title('IMU Travel rate - Flying still');
+title('IMU Travel rate');
 
 %plot pitch
 subplot(5,1,4);
@@ -133,7 +133,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Pitch [rad]');
 xlim([x_start, x_stop]);
-title('IMU Pitch - Flying still');
+title('IMU Pitch');
 
 %plot elevation
 subplot(5,1,5);
@@ -144,31 +144,31 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Elevation [rad]');
 xlim([x_start, x_stop]);
-title('IMU Elevation - Flying still');
+title('IMU Elevation');
 
 %expected values
-flying_pitch_r_mean = mean(IMU_pitch_r, 'omitnan');
-flying_elevation_r_mean = mean(IMU_elevation_r, 'omitnan');
-flying_travel_r_mean = mean(IMU_travel_r, 'omitnan');
+pitch_r_mean = mean(IMU_pitch_r, 'omitnan');
+elevation_r_mean = mean(IMU_elevation_r, 'omitnan');
+travel_r_mean = mean(IMU_travel_r, 'omitnan');
 
 % covariances
-flying_IMU_vals_no_time = Noise_flying_still_vals;
-flying_IMU_vals_no_time(1,:) = [];
-flying_Cov_matrix = cov(flying_IMU_vals_no_time.', 'omitrows');
+IMU_vals_no_time = Noise_flying_still_vals;
+IMU_vals_no_time(1,:) = [];
+Cov_matrix = cov(IMU_vals_no_time.', 'omitrows');
 
 %% Plot table
 Noise_table = load('Noise_table_final.mat');
-Noise_table_vals = Noise_table.Noise_table(:, 10000:end); % remove incorrect start data
+Noise_flying_still_vals = Noise_table.Noise_table(:, 10000:end); % remove incorrect start data
 
-IMU_timestamp = Noise_table_vals(1,:);
-IMU_pitch_r = Noise_table_vals(2,:);
-IMU_elevation_r = Noise_table_vals(3,:);
-IMU_travel_r = Noise_table_vals(4,:);
-IMU_pitch = Noise_table_vals(5,:);
-IMU_elevation = Noise_table_vals(6,:);
+IMU_timestamp = Noise_flying_still_vals(1,:);
+IMU_pitch_r = Noise_flying_still_vals(2,:);
+IMU_elevation_r = Noise_flying_still_vals(3,:);
+IMU_travel_r = Noise_flying_still_vals(4,:);
+IMU_pitch = Noise_flying_still_vals(5,:);
+IMU_elevation = Noise_flying_still_vals(6,:);
 
 
-figure(2);
+figure(1);
 x_start = 020;
 x_stop = 275;
 
@@ -181,7 +181,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Pitch rate [rad/s]');
 xlim([x_start, x_stop]);
-title('IMU Pitch rate - On table');
+title('IMU Pitch rate');
 
 %plot elevation rate
 subplot(5,1,2);
@@ -192,7 +192,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Elevation rate [rad/s]');
 xlim([x_start, x_stop]);
-title('IMU Elevation rate - On table');
+title('IMU Elevation rate');
 
 %plot lambda rate
 subplot(5,1,3);
@@ -203,7 +203,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Travel rate [rad/s]');
 xlim([x_start, x_stop]);
-title('IMU Travel rate - On table');
+title('IMU Travel rate');
 
 %plot pitch
 subplot(5,1,4);
@@ -214,7 +214,7 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Pitch [rad]');
 xlim([x_start, x_stop]);
-title('IMU Pitch - On table');
+title('IMU Pitch');
 
 %plot elevation
 subplot(5,1,5);
@@ -225,14 +225,14 @@ grid on;
 xlabel('seconds [s]');
 ylabel('Elevation [rad]');
 xlim([x_start, x_stop]);
-title('IMU Elevation - On table');
+title('IMU Elevation');
 
 %expected values
-table_pitch_r_mean = mean(IMU_pitch_r, 'omitnan');
-table_elevation_r_mean = mean(IMU_elevation_r, 'omitnan');
-table_travel_r_mean = mean(IMU_travel_r, 'omitnan');
+tabepitch_r_mean = mean(IMU_pitch_r, 'omitnan');
+elevation_r_mean = mean(IMU_elevation_r, 'omitnan');
+travel_r_mean = mean(IMU_travel_r, 'omitnan');
 
 % covariances
-table_IMU_vals_no_time = Noise_table_vals;
-table_IMU_vals_no_time(1,:) = [];
-table_Cov_matrix = cov(table_IMU_vals_no_time.', 'omitrows');
+IMU_vals_no_time = Noise_flying_still_vals;
+IMU_vals_no_time(1,:) = [];
+Cov_matrix = cov(IMU_vals_no_time.', 'omitrows');
