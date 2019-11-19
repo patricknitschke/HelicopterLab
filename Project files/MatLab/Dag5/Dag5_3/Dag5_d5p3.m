@@ -58,7 +58,6 @@ Noise_flying_vals_no_time(1,:) = [];
 R_d = cov(Noise_flying_vals_no_time.', 'omitrows');
 
 % Test out different
-
 Q_d_p = 0.01;
 Q_d_pdot = 0.001;
 Q_d_e = 0.0001;
@@ -66,11 +65,5 @@ Q_d_edot = 0.001;
 Q_d_l = 0.001;
 Q_d_ldot = 0.01;
 
-
-
 Q_d = diag([Q_d_p Q_d_pdot Q_d_e Q_d_edot Q_d_l Q_d_ldot]);
-
-
-P_matrices = P_error_cov.signals.values;
-first  = P_matrices(:,:,1);
 
