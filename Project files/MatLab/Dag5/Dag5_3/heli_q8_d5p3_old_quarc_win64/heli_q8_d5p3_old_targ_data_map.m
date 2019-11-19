@@ -917,60 +917,60 @@
       dworkMap.sections(5) = section;
       clear section
       
-      section.nData     = 27;
-      section.data(27)  = dumData; %prealloc
+      section.nData     = 28;
+      section.data(28)  = dumData; %prealloc
       
 	  ;% heli_q8_d5p3_old_DW.P_scope_PWORK.LoggedData
 	  section.data(1).logicalSrcIdx = 17;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% heli_q8_d5p3_old_DW.e_PWORK.LoggedData
+	  ;% heli_q8_d5p3_old_DW.ToWorkspace_PWORK.LoggedData
 	  section.data(2).logicalSrcIdx = 18;
 	  section.data(2).dtTransOffset = 2;
 	
-	  ;% heli_q8_d5p3_old_DW.edot_PWORK.LoggedData
+	  ;% heli_q8_d5p3_old_DW.e_PWORK.LoggedData
 	  section.data(3).logicalSrcIdx = 19;
-	  section.data(3).dtTransOffset = 4;
+	  section.data(3).dtTransOffset = 3;
+	
+	  ;% heli_q8_d5p3_old_DW.edot_PWORK.LoggedData
+	  section.data(4).logicalSrcIdx = 20;
+	  section.data(4).dtTransOffset = 5;
 	
 	  ;% heli_q8_d5p3_old_DW.lambda_PWORK.LoggedData
-	  section.data(4).logicalSrcIdx = 20;
-	  section.data(4).dtTransOffset = 6;
+	  section.data(5).logicalSrcIdx = 21;
+	  section.data(5).dtTransOffset = 7;
 	
 	  ;% heli_q8_d5p3_old_DW.lambdadot_PWORK.LoggedData
-	  section.data(5).logicalSrcIdx = 21;
-	  section.data(5).dtTransOffset = 8;
+	  section.data(6).logicalSrcIdx = 22;
+	  section.data(6).dtTransOffset = 9;
 	
 	  ;% heli_q8_d5p3_old_DW.p_PWORK.LoggedData
-	  section.data(6).logicalSrcIdx = 22;
-	  section.data(6).dtTransOffset = 10;
+	  section.data(7).logicalSrcIdx = 23;
+	  section.data(7).dtTransOffset = 11;
 	
 	  ;% heli_q8_d5p3_old_DW.pdot_PWORK.LoggedData
-	  section.data(7).logicalSrcIdx = 23;
-	  section.data(7).dtTransOffset = 12;
+	  section.data(8).logicalSrcIdx = 24;
+	  section.data(8).dtTransOffset = 13;
 	
 	  ;% heli_q8_d5p3_old_DW.e_PWORK_n.LoggedData
-	  section.data(8).logicalSrcIdx = 24;
-	  section.data(8).dtTransOffset = 14;
+	  section.data(9).logicalSrcIdx = 25;
+	  section.data(9).dtTransOffset = 15;
 	
 	  ;% heli_q8_d5p3_old_DW.edot_PWORK_f.LoggedData
-	  section.data(9).logicalSrcIdx = 25;
-	  section.data(9).dtTransOffset = 16;
+	  section.data(10).logicalSrcIdx = 26;
+	  section.data(10).dtTransOffset = 17;
 	
 	  ;% heli_q8_d5p3_old_DW.lambdadot_PWORK_o.LoggedData
-	  section.data(10).logicalSrcIdx = 26;
-	  section.data(10).dtTransOffset = 18;
+	  section.data(11).logicalSrcIdx = 27;
+	  section.data(11).dtTransOffset = 19;
 	
 	  ;% heli_q8_d5p3_old_DW.p_PWORK_g.LoggedData
-	  section.data(11).logicalSrcIdx = 27;
-	  section.data(11).dtTransOffset = 20;
+	  section.data(12).logicalSrcIdx = 28;
+	  section.data(12).dtTransOffset = 21;
 	
 	  ;% heli_q8_d5p3_old_DW.pdot_PWORK_i.LoggedData
-	  section.data(12).logicalSrcIdx = 28;
-	  section.data(12).dtTransOffset = 22;
-	
-	  ;% heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr
 	  section.data(13).logicalSrcIdx = 29;
-	  section.data(13).dtTransOffset = 24;
+	  section.data(13).dtTransOffset = 23;
 	
 	  ;% heli_q8_d5p3_old_DW.Vs_PWORK.LoggedData
 	  section.data(14).logicalSrcIdx = 30;
@@ -1028,6 +1028,10 @@
 	  section.data(27).logicalSrcIdx = 43;
 	  section.data(27).dtTransOffset = 38;
 	
+	  ;% heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr
+	  section.data(28).logicalSrcIdx = 44;
+	  section.data(28).dtTransOffset = 39;
+	
       nTotData = nTotData + section.nData;
       dworkMap.sections(6) = section;
       clear section
@@ -1036,31 +1040,31 @@
       section.data(7)  = dumData; %prealloc
       
 	  ;% heli_q8_d5p3_old_DW.HILInitialize_ClockModes
-	  section.data(1).logicalSrcIdx = 44;
+	  section.data(1).logicalSrcIdx = 45;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% heli_q8_d5p3_old_DW.HILInitialize_QuadratureModes
-	  section.data(2).logicalSrcIdx = 45;
+	  section.data(2).logicalSrcIdx = 46;
 	  section.data(2).dtTransOffset = 3;
 	
 	  ;% heli_q8_d5p3_old_DW.HILInitialize_InitialEICounts
-	  section.data(3).logicalSrcIdx = 46;
+	  section.data(3).logicalSrcIdx = 47;
 	  section.data(3).dtTransOffset = 11;
 	
 	  ;% heli_q8_d5p3_old_DW.HILInitialize_POModeValues
-	  section.data(4).logicalSrcIdx = 47;
+	  section.data(4).logicalSrcIdx = 48;
 	  section.data(4).dtTransOffset = 19;
 	
 	  ;% heli_q8_d5p3_old_DW.HILInitialize_POAlignValues
-	  section.data(5).logicalSrcIdx = 48;
+	  section.data(5).logicalSrcIdx = 49;
 	  section.data(5).dtTransOffset = 27;
 	
 	  ;% heli_q8_d5p3_old_DW.HILInitialize_POPolarityVals
-	  section.data(6).logicalSrcIdx = 49;
+	  section.data(6).logicalSrcIdx = 50;
 	  section.data(6).dtTransOffset = 35;
 	
 	  ;% heli_q8_d5p3_old_DW.HILReadEncoderTimebase_Buffer
-	  section.data(7).logicalSrcIdx = 50;
+	  section.data(7).logicalSrcIdx = 51;
 	  section.data(7).dtTransOffset = 43;
 	
       nTotData = nTotData + section.nData;
@@ -1071,7 +1075,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% heli_q8_d5p3_old_DW.HILInitialize_POSortedChans
-	  section.data(1).logicalSrcIdx = 51;
+	  section.data(1).logicalSrcIdx = 52;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -1082,7 +1086,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% heli_q8_d5p3_old_DW.noisetofile_IWORK.Count
-	  section.data(1).logicalSrcIdx = 52;
+	  section.data(1).logicalSrcIdx = 53;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -1093,7 +1097,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% heli_q8_d5p3_old_DW.StreamCall1_State
-	  section.data(1).logicalSrcIdx = 53;
+	  section.data(1).logicalSrcIdx = 54;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -1126,8 +1130,8 @@
   ;%
 
 
-  targMap.checksum0 = 2849901800;
-  targMap.checksum1 = 140512230;
-  targMap.checksum2 = 3112153293;
-  targMap.checksum3 = 2152022075;
+  targMap.checksum0 = 1859336688;
+  targMap.checksum1 = 2416917789;
+  targMap.checksum2 = 307036529;
+  targMap.checksum3 = 1931844277;
 

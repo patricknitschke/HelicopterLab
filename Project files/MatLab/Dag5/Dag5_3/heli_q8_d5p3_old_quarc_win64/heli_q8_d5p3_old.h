@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d5p3_old".
  *
- * Model version              : 1.113
+ * Model version              : 1.114
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Thu Nov 14 02:51:08 2019
+ * C source code generated on : Sun Nov 17 17:48:17 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -896,6 +896,10 @@ typedef struct {
   } P_scope_PWORK;                     /* '<S5>/P_scope' */
 
   struct {
+    void *LoggedData;
+  } ToWorkspace_PWORK;                 /* '<S5>/To Workspace' */
+
+  struct {
     void *LoggedData[2];
   } e_PWORK;                           /* '<S5>/e' */
 
@@ -938,10 +942,6 @@ typedef struct {
   struct {
     void *LoggedData[2];
   } pdot_PWORK_i;                      /* '<S7>/pdot' */
-
-  struct {
-    void *FilePtr;
-  } noisetofile_PWORK;                 /* '<Root>/noise to file' */
 
   struct {
     void *LoggedData;
@@ -995,6 +995,10 @@ typedef struct {
   struct {
     void *LoggedData;
   } YScope_PWORK;                      /* '<S4>/Y: Scope' */
+
+  struct {
+    void *FilePtr;
+  } noisetofile_PWORK;                 /* '<Root>/noise to file' */
 
   int32_T HILInitialize_ClockModes[3]; /* '<Root>/HIL Initialize' */
   int32_T HILInitialize_QuadratureModes[8];/* '<Root>/HIL Initialize' */

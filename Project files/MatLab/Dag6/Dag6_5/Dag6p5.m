@@ -59,7 +59,7 @@ R_d = cov(Noise_flying_vals_no_time.', 'omitrows');
 
 % Test out different
 Q_d_p = 0.00001;
-Q_d_pdot = 0.005;
+Q_d_pdot = 0.0005;
 Q_d_e = 0.00001;
 Q_d_edot = 0.0001;
 Q_d_l = 0.0001;

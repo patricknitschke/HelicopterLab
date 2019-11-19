@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d5p3_old".
  *
- * Model version              : 1.113
+ * Model version              : 1.114
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Thu Nov 14 02:51:08 2019
+ * C source code generated on : Sun Nov 17 17:48:17 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -145,7 +145,6 @@ void heli_q8_d5p3_old_output0(void)    /* Sample time: [0.0s, 0.0s] */
   real_T rtb_HILReadEncoderTimebase_o1;
   real_T rtb_HILReadEncoderTimebase_o2;
   real_T rtb_HILReadEncoderTimebase_o3;
-  real_T rtb_TmpSignalConversionAtnoiset[5];
   t_stream_ptr rtb_StreamCall1_o1;
   t_stream_ptr rtb_StreamFormattedWrite_o1;
   real32_T rtb_StreamRead1_o2[10];
@@ -626,49 +625,6 @@ void heli_q8_d5p3_old_output0(void)    /* Sample time: [0.0s, 0.0s] */
     heli_q8_d5p3_old_B.TrigonometricFunction = atan(heli_q8_d5p3_old_B.Gain2[0] /
       heli_q8_d5p3_old_B.Gain2[2]);
 
-    /* SignalConversion: '<Root>/TmpSignal ConversionAtnoise to fileInport1' */
-    rtb_TmpSignalConversionAtnoiset[0] = heli_q8_d5p3_old_B.euler_rates[0];
-    rtb_TmpSignalConversionAtnoiset[1] = heli_q8_d5p3_old_B.euler_rates[1];
-    rtb_TmpSignalConversionAtnoiset[2] = heli_q8_d5p3_old_B.euler_rates[2];
-    rtb_TmpSignalConversionAtnoiset[3] =
-      heli_q8_d5p3_old_B.TrigonometricFunction;
-    rtb_TmpSignalConversionAtnoiset[4] =
-      heli_q8_d5p3_old_B.TrigonometricFunction1;
-
-    /* ToFile: '<Root>/noise to file' */
-    if (rtmIsMajorTimeStep(heli_q8_d5p3_old_M)) {
-      {
-        if (!(++heli_q8_d5p3_old_DW.noisetofile_IWORK.Decimation % 1) &&
-            (heli_q8_d5p3_old_DW.noisetofile_IWORK.Count*6)+1 < 100000000 ) {
-          FILE *fp = (FILE *) heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr;
-          if (fp != (NULL)) {
-            real_T u[6];
-            heli_q8_d5p3_old_DW.noisetofile_IWORK.Decimation = 0;
-            u[0] = heli_q8_d5p3_old_M->Timing.t[1];
-            u[1] = rtb_TmpSignalConversionAtnoiset[0];
-            u[2] = rtb_TmpSignalConversionAtnoiset[1];
-            u[3] = rtb_TmpSignalConversionAtnoiset[2];
-            u[4] = rtb_TmpSignalConversionAtnoiset[3];
-            u[5] = rtb_TmpSignalConversionAtnoiset[4];
-            if (fwrite(u, sizeof(real_T), 6, fp) != 6) {
-              rtmSetErrorStatus(heli_q8_d5p3_old_M,
-                                "Error writing to MAT-file noise.mat");
-              return;
-            }
-
-            if (((++heli_q8_d5p3_old_DW.noisetofile_IWORK.Count)*6)+1 >=
-                100000000) {
-              (void)fprintf(stdout,
-                            "*** The ToFile block will stop logging data before\n"
-                            "    the simulation has ended, because it has reached\n"
-                            "    the maximum number of elements (100000000)\n"
-                            "    allowed in MAT-file noise.mat.\n");
-            }
-          }
-        }
-      }
-    }
-
     /* Constant: '<S6>/V_s0' */
     heli_q8_d5p3_old_B.V_s0[0] = heli_q8_d5p3_old_P.V_s0_Value[0];
     heli_q8_d5p3_old_B.V_s0[1] = heli_q8_d5p3_old_P.V_s0_Value[1];
@@ -767,6 +723,37 @@ void heli_q8_d5p3_old_output0(void)    /* Sample time: [0.0s, 0.0s] */
     heli_q8_d5p3_old_B.Joystick_gain_x;
   heli_q8_d5p3_old_B.Sum3[1] = heli_q8_d5p3_old_B.ElevationTransferFcn -
     heli_q8_d5p3_old_B.Joystick_gain_y;
+  if (rtmIsMajorTimeStep(heli_q8_d5p3_old_M)) {
+    /* ToFile: '<Root>/noise to file' */
+    if (rtmIsMajorTimeStep(heli_q8_d5p3_old_M)) {
+      {
+        if (!(++heli_q8_d5p3_old_DW.noisetofile_IWORK.Decimation % 1) &&
+            (heli_q8_d5p3_old_DW.noisetofile_IWORK.Count*2)+1 < 100000000 ) {
+          FILE *fp = (FILE *) heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr;
+          if (fp != (NULL)) {
+            real_T u[2];
+            heli_q8_d5p3_old_DW.noisetofile_IWORK.Decimation = 0;
+            u[0] = heli_q8_d5p3_old_M->Timing.t[1];
+            u[1] = 0.0;
+            if (fwrite(u, sizeof(real_T), 2, fp) != 2) {
+              rtmSetErrorStatus(heli_q8_d5p3_old_M,
+                                "Error writing to MAT-file noise.mat");
+              return;
+            }
+
+            if (((++heli_q8_d5p3_old_DW.noisetofile_IWORK.Count)*2)+1 >=
+                100000000) {
+              (void)fprintf(stdout,
+                            "*** The ToFile block will stop logging data before\n"
+                            "    the simulation has ended, because it has reached\n"
+                            "    the maximum number of elements (100000000)\n"
+                            "    allowed in MAT-file noise.mat.\n");
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Model update function for TID0 */
@@ -1362,26 +1349,6 @@ void heli_q8_d5p3_old_initialize(void)
     heli_q8_d5p3_old_DW.StreamCall1_Stream = NULL;
   }
 
-  /* Start for ToFile: '<Root>/noise to file' */
-  {
-    FILE *fp = (NULL);
-    char fileName[509] = "noise.mat";
-    if ((fp = fopen(fileName, "wb")) == (NULL)) {
-      rtmSetErrorStatus(heli_q8_d5p3_old_M, "Error creating .mat file noise.mat");
-      return;
-    }
-
-    if (rt_WriteMat4FileHeader(fp,6,0,"noise")) {
-      rtmSetErrorStatus(heli_q8_d5p3_old_M,
-                        "Error writing mat file header to file noise.mat");
-      return;
-    }
-
-    heli_q8_d5p3_old_DW.noisetofile_IWORK.Count = 0;
-    heli_q8_d5p3_old_DW.noisetofile_IWORK.Decimation = -1;
-    heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr = fp;
-  }
-
   /* Start for S-Function (game_controller_block): '<S4>/Game Controller' */
 
   /* S-Function Block: heli_q8_d5p3_old/Joystick1/Game Controller (game_controller_block) */
@@ -1410,6 +1377,26 @@ void heli_q8_d5p3_old_initialize(void)
         rtmSetErrorStatus(heli_q8_d5p3_old_M, _rt_error_message);
       }
     }
+  }
+
+  /* Start for ToFile: '<Root>/noise to file' */
+  {
+    FILE *fp = (NULL);
+    char fileName[509] = "noise.mat";
+    if ((fp = fopen(fileName, "wb")) == (NULL)) {
+      rtmSetErrorStatus(heli_q8_d5p3_old_M, "Error creating .mat file noise.mat");
+      return;
+    }
+
+    if (rt_WriteMat4FileHeader(fp,2,0,"noise")) {
+      rtmSetErrorStatus(heli_q8_d5p3_old_M,
+                        "Error writing mat file header to file noise.mat");
+      return;
+    }
+
+    heli_q8_d5p3_old_DW.noisetofile_IWORK.Count = 0;
+    heli_q8_d5p3_old_DW.noisetofile_IWORK.Decimation = -1;
+    heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr = fp;
   }
 
   {
@@ -1558,6 +1545,16 @@ void heli_q8_d5p3_old_terminate(void)
     }
   }
 
+  /* Terminate for S-Function (game_controller_block): '<S4>/Game Controller' */
+
+  /* S-Function Block: heli_q8_d5p3_old/Joystick1/Game Controller (game_controller_block) */
+  {
+    if (heli_q8_d5p3_old_P.GameController_Enabled) {
+      game_controller_close(heli_q8_d5p3_old_DW.GameController_Controller);
+      heli_q8_d5p3_old_DW.GameController_Controller = NULL;
+    }
+  }
+
   /* Terminate for ToFile: '<Root>/noise to file' */
   {
     FILE *fp = (FILE *) heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr;
@@ -1574,7 +1571,7 @@ void heli_q8_d5p3_old_terminate(void)
         return;
       }
 
-      if (rt_WriteMat4FileHeader(fp, 6,
+      if (rt_WriteMat4FileHeader(fp, 2,
            heli_q8_d5p3_old_DW.noisetofile_IWORK.Count, "noise")) {
         rtmSetErrorStatus(heli_q8_d5p3_old_M,
                           "Error writing header for noise to MAT-file noise.mat");
@@ -1586,16 +1583,6 @@ void heli_q8_d5p3_old_terminate(void)
       }
 
       heli_q8_d5p3_old_DW.noisetofile_PWORK.FilePtr = (NULL);
-    }
-  }
-
-  /* Terminate for S-Function (game_controller_block): '<S4>/Game Controller' */
-
-  /* S-Function Block: heli_q8_d5p3_old/Joystick1/Game Controller (game_controller_block) */
-  {
-    if (heli_q8_d5p3_old_P.GameController_Enabled) {
-      game_controller_close(heli_q8_d5p3_old_DW.GameController_Controller);
-      heli_q8_d5p3_old_DW.GameController_Controller = NULL;
     }
   }
 }
@@ -1750,10 +1737,10 @@ RT_MODEL_heli_q8_d5p3_old_T *heli_q8_d5p3_old(void)
   heli_q8_d5p3_old_M->Timing.stepSize2 = 0.01;
 
   /* External mode info */
-  heli_q8_d5p3_old_M->Sizes.checksums[0] = (2849901800U);
-  heli_q8_d5p3_old_M->Sizes.checksums[1] = (140512230U);
-  heli_q8_d5p3_old_M->Sizes.checksums[2] = (3112153293U);
-  heli_q8_d5p3_old_M->Sizes.checksums[3] = (2152022075U);
+  heli_q8_d5p3_old_M->Sizes.checksums[0] = (1859336688U);
+  heli_q8_d5p3_old_M->Sizes.checksums[1] = (2416917789U);
+  heli_q8_d5p3_old_M->Sizes.checksums[2] = (307036529U);
+  heli_q8_d5p3_old_M->Sizes.checksums[3] = (1931844277U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

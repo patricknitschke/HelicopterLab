@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d3p2".
  *
- * Model version              : 1.80
+ * Model version              : 1.88
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Tue Nov 12 07:07:09 2019
+ * C source code generated on : Sun Nov 17 15:18:07 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -26,7 +26,7 @@ P_heli_q8_d3p2_T heli_q8_d3p2_P = {
   /*  Variable: F
    * Referenced by: '<S5>/F*r'
    */
-  { -0.0, 1.0000000000000002, 1.0000000000000002, 0.0 },
+  { 0.0, 14.142135623730942, 9.7979589711327115, 0.0 },
   3.0,                                 /* Variable: Joystick_gain_x
                                         * Referenced by: '<S3>/Joystick_gain_x'
                                         */
@@ -37,7 +37,7 @@ P_heli_q8_d3p2_T heli_q8_d3p2_P = {
   /*  Variable: K
    * Referenced by: '<S5>/K*x'
    */
-  { 0.0, 1.0000000000000002, 0.0, 2.1288753114598138, 1.0000000000000002, 0.0 },
+  { 0.0, 7.0710678118654711, 0.0, 5.6987533704916489, 4.8989794855663558, 0.0 },
   10.0,                                /* Mask Parameter: HILInitialize_analog_input_maxi
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
@@ -256,6 +256,15 @@ P_heli_q8_d3p2_T heli_q8_d3p2_P = {
   0,                                   /* Mask Parameter: HILInitialize_set_pwm_params__f
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
+  5.0,                                 /* Expression: 5
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
+  -0.1,                                /* Expression: -0.1
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
+  0.3,                                 /* Expression: 0.3
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S3>/Rate Transition: x'
                                         */
@@ -274,6 +283,15 @@ P_heli_q8_d3p2_T heli_q8_d3p2_P = {
   -0.0015339807878856412,              /* Expression: -2*pi /4096
                                         * Referenced by: '<S2>/Pitch: Count to rad'
                                         */
+  5.0,                                 /* Expression: 5
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
+  -0.1,                                /* Expression: -0.1
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
+  0.3,                                 /* Expression: 0.3
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S3>/Rate Transition: y'
                                         */
@@ -286,7 +304,7 @@ P_heli_q8_d3p2_T heli_q8_d3p2_P = {
   1.1111111111111112,                  /* Expression: 10/9
                                         * Referenced by: '<S3>/Gain: y'
                                         */
-  -0.53,                               /* Expression: -0.53
+  0.0,                                 /* Expression: 0
                                         * Referenced by: '<S2>/Constant1'
                                         */
   -0.0015339807878856412,              /* Expression: -2 * pi /4096
@@ -315,10 +333,10 @@ P_heli_q8_d3p2_T heli_q8_d3p2_P = {
    * Referenced by: '<S4>/V_s0'
    */
   { 7.0, 0.0 },
-  5.0,                                 /* Expression: 5
+  0.5,                                 /* Expression: 0.5
                                         * Referenced by: '<S1>/Back gain'
                                         */
-  5.0,                                 /* Expression: 5
+  0.5,                                 /* Expression: 0.5
                                         * Referenced by: '<S1>/Front gain'
                                         */
   0.00076699039394282058,              /* Expression: 2*pi/8192
@@ -347,6 +365,12 @@ P_heli_q8_d3p2_T heli_q8_d3p2_P = {
                                         */
   12U,                                 /* Computed Parameter: GameController_BufferSize
                                         * Referenced by: '<S3>/Game Controller'
+                                        */
+  1U,                                  /* Computed Parameter: ManualSwitch_CurrentSetting
+                                        * Referenced by: '<S3>/Manual Switch'
+                                        */
+  0U,                                  /* Computed Parameter: ManualSwitch2_CurrentSetting
+                                        * Referenced by: '<S3>/Manual Switch2'
                                         */
   1U,                                  /* Computed Parameter: GameController_ControllerNumber
                                         * Referenced by: '<S3>/Game Controller'

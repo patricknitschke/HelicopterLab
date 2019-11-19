@@ -236,3 +236,95 @@ table_travel_r_mean = mean(IMU_travel_r, 'omitnan');
 table_IMU_vals_no_time = Noise_table_vals;
 table_IMU_vals_no_time(1,:) = [];
 table_Cov_matrix = cov(table_IMU_vals_no_time.', 'omitrows');
+
+
+%% Plot Flying
+flying_with_IMU_feedback_final = load('flying_with_IMU_feedback_final.mat');
+flying_with_IMU_feedback = flying_with_IMU_feedback_final.flying_with_IMU_feedback;
+
+timestamp = flying_with_IMU_feedback(1,:);
+encoder_p = flying_with_IMU_feedback(2,:);
+encoder_pdot = flying_with_IMU_feedback(3,:);
+encoder_e = flying_with_IMU_feedback(4,:);
+encoder_edot = flying_with_IMU_feedback(5,:);
+encoder_ldot = flying_with_IMU_feedback(7,:);
+IMU_pitch_r = flying_with_IMU_feedback(8,:);
+IMU_elevation_r = flying_with_IMU_feedback(9,:);
+IMU_travel_r = flying_with_IMU_feedback(10,:);
+IMU_pitch = flying_with_IMU_feedback(11,:);
+IMU_elevation = flying_with_IMU_feedback(12,:);
+
+
+figure(3);
+x_start = 020;
+x_stop = 275;
+
+%plot pitch 
+subplot(5,1,1);
+
+
+plot(timestamp, IMU_pitch,'b', 'LineWidth', 1.2)
+
+hold on;
+grid on;
+plot(timestamp, encoder_p,'r', 'LineWidth', 1.2);
+xlabel('seconds [s]');
+ylabel('Pitch [rad]');
+%xlim([x_start, x_stop]);
+title('Flying with IMU - Pitch angle comparison');
+
+%plot pitch 
+subplot(5,1,2);
+
+
+
+plot(timestamp, IMU_pitch_r,'b', 'LineWidth', 1.2);
+hold on;
+grid on;
+plot(timestamp, encoder_pdot,'r', 'LineWidth', 1.2);
+xlabel('seconds [s]');
+ylabel('Pitch rate [rad/s]');
+%xlim([x_start, x_stop]);
+title('Flying with IMU - Pitch rate comparison');
+%plot pitch 
+subplot(5,1,3);
+plot(timestamp, IMU_elevation,'b', 'LineWidth', 1.2);
+hold on;
+grid on;
+plot(timestamp, encoder_e,'r', 'LineWidth', 1.2);
+
+
+xlabel('seconds [s]');
+ylabel('Elevation [rad]');
+%xlim([x_start, x_stop]);
+title('Flying with IMU - Elevation angle comparison');
+%plot pitch 
+subplot(5,1,4);
+plot(timestamp, IMU_elevation_r,'b', 'LineWidth', 1.2)
+
+hold on;
+grid on;
+
+plot(timestamp, encoder_edot,'r', 'LineWidth', 1.2);
+xlabel('seconds [s]');
+ylabel('Elevation rate [rad/s]');
+%xlim([x_start, x_stop]);
+title('Flying with IMU - Elevation rate comparison');
+%plot pitch 
+subplot(5,1,5);
+
+plot(timestamp, IMU_travel_r,'b', 'LineWidth', 1.2)
+hold on;
+grid on;
+plot(timestamp, encoder_ldot,'r', 'LineWidth', 1.2);
+xlabel('seconds [s]');
+ylabel('Travel rate [rad/s]');
+%xlim([x_start, x_stop]);
+title('Flying with IMU - Travel rate comparison');
+
+
+
+
+
+
+

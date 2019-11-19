@@ -359,7 +359,7 @@
 	  section.data(5).logicalSrcIdx = 74;
 	  section.data(5).dtTransOffset = 4;
 	
-	  ;% heli_q8_d4p1_P.Gain1_Gain
+	  ;% heli_q8_d4p1_P.Gain2_Gain
 	  section.data(6).logicalSrcIdx = 75;
 	  section.data(6).dtTransOffset = 5;
 	
@@ -610,7 +610,7 @@
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% heli_q8_d4p1_B.Gain1
+	  ;% heli_q8_d4p1_B.Gain2
 	  section.data(2).logicalSrcIdx = 1;
 	  section.data(2).dtTransOffset = 1;
 	
@@ -974,8 +974,8 @@
   ;%
 
 
-  targMap.checksum0 = 574002560;
-  targMap.checksum1 = 2608879045;
-  targMap.checksum2 = 775904503;
-  targMap.checksum3 = 467690398;
+  targMap.checksum0 = 1963427590;
+  targMap.checksum1 = 1360091634;
+  targMap.checksum2 = 1268690465;
+  targMap.checksum3 = 2416171161;
 

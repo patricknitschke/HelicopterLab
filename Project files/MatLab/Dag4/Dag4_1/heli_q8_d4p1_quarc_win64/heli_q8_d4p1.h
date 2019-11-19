@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d4p1".
  *
- * Model version              : 1.85
+ * Model version              : 1.87
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Wed Nov 13 05:12:48 2019
+ * C source code generated on : Sun Nov 17 12:34:28 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -840,7 +840,7 @@ typedef t_stream * t_stream_ptr;
 /* Block signals (auto storage) */
 typedef struct {
   real_T Sum1;                         /* '<S2>/Sum1' */
-  real_T Gain1[3];                     /* '<S6>/Gain1' */
+  real_T Gain2[3];                     /* '<S6>/Gain2' */
   real_T Sum2;                         /* '<S2>/Sum2' */
   real_T TravelCounttorad;             /* '<S2>/Travel: Count to rad' */
   real_T ElevationTransferFcn;         /* '<S2>/Elevation: Transfer Fcn' */
@@ -1221,8 +1221,8 @@ struct P_heli_q8_d4p1_T_ {
   real_T Constant1_Value;              /* Expression: 65
                                         * Referenced by: '<S6>/Constant1'
                                         */
-  real_T Gain1_Gain[9];                /* Expression: [ 0, 0, 1; 0, 1, 0; -1, 0, 0]
-                                        * Referenced by: '<S6>/Gain1'
+  real_T Gain2_Gain[9];                /* Expression: [ 0, 0, 1; 0, 1, 0; -1, 0, 0]
+                                        * Referenced by: '<S6>/Gain2'
                                         */
   real_T Constant4_Value;              /* Expression: 0
                                         * Referenced by: '<S2>/Constant4'

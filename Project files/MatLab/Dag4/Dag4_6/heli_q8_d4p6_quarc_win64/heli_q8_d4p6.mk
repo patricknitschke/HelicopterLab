@@ -129,7 +129,7 @@ RELATIVE_PATH_TO_ANCHOR   = ..
 MODELREF_TARGET_TYPE      = NONE
 
 #-- Support for parallel builds
-START_DIR         = C:\Users\jahnpn\Desktop\LINSYS~2\PROJEC~1\MatLab\Dag4\Dag4_6
+START_DIR         = C:\Users\jahnpn\Desktop\HELICO~1\PROJEC~1\MatLab\Dag4\Dag4_6
 MASTER_ANCHOR_DIR = 
 
 #-- Support multi-instance code

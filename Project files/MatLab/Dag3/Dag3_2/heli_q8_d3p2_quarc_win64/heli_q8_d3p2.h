@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d3p2".
  *
- * Model version              : 1.80
+ * Model version              : 1.88
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Tue Nov 12 07:07:09 2019
+ * C source code generated on : Sun Nov 17 15:18:07 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -828,12 +828,13 @@
 typedef struct {
   real_T RateTransitionx;              /* '<S3>/Rate Transition: x' */
   real_T Joystick_gain_x;              /* '<S3>/Joystick_gain_x' */
+  real_T ManualSwitch;                 /* '<S3>/Manual Switch' */
   real_T Sum1;                         /* '<S2>/Sum1' */
   real_T RateTransitiony;              /* '<S3>/Rate Transition: y' */
   real_T Joystick_gain_y;              /* '<S3>/Joystick_gain_y' */
+  real_T ManualSwitch2;                /* '<S3>/Manual Switch2' */
   real_T Sum2;                         /* '<S2>/Sum2' */
   real_T ElevationTransferFcn;         /* '<S2>/Elevation: Transfer Fcn' */
-  real_T Fr[2];                        /* '<S5>/F*r' */
   real_T PitchTransferFcn;             /* '<S2>/Pitch: Transfer Fcn' */
   real_T V_s0[2];                      /* '<S4>/V_s0' */
   real_T Sum1_j[2];                    /* '<S4>/Sum1' */
@@ -1187,6 +1188,15 @@ struct P_heli_q8_d3p2_T_ {
   boolean_T HILInitialize_set_pwm_params__f;/* Mask Parameter: HILInitialize_set_pwm_params__f
                                              * Referenced by: '<Root>/HIL Initialize'
                                              */
+  real_T p_c1_Time;                    /* Expression: 5
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
+  real_T p_c1_Y0;                      /* Expression: -0.1
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
+  real_T p_c1_YFinal;                  /* Expression: 0.3
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
   real_T RateTransitionx_X0;           /* Expression: 0
                                         * Referenced by: '<S3>/Rate Transition: x'
                                         */
@@ -1205,6 +1215,15 @@ struct P_heli_q8_d3p2_T_ {
   real_T PitchCounttorad_Gain;         /* Expression: -2*pi /4096
                                         * Referenced by: '<S2>/Pitch: Count to rad'
                                         */
+  real_T edot_c1_Time;                 /* Expression: 5
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
+  real_T edot_c1_Y0;                   /* Expression: -0.1
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
+  real_T edot_c1_YFinal;               /* Expression: 0.3
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
   real_T RateTransitiony_X0;           /* Expression: 0
                                         * Referenced by: '<S3>/Rate Transition: y'
                                         */
@@ -1217,7 +1236,7 @@ struct P_heli_q8_d3p2_T_ {
   real_T Gainy_Gain;                   /* Expression: 10/9
                                         * Referenced by: '<S3>/Gain: y'
                                         */
-  real_T Constant1_Value;              /* Expression: -0.53
+  real_T Constant1_Value;              /* Expression: 0
                                         * Referenced by: '<S2>/Constant1'
                                         */
   real_T ElevationCounttorad_Gain;     /* Expression: -2 * pi /4096
@@ -1244,10 +1263,10 @@ struct P_heli_q8_d3p2_T_ {
   real_T V_s0_Value[2];                /* Expression: [V_s0, 0]
                                         * Referenced by: '<S4>/V_s0'
                                         */
-  real_T Backgain_Gain;                /* Expression: 5
+  real_T Backgain_Gain;                /* Expression: 0.5
                                         * Referenced by: '<S1>/Back gain'
                                         */
-  real_T Frontgain_Gain;               /* Expression: 5
+  real_T Frontgain_Gain;               /* Expression: 0.5
                                         * Referenced by: '<S1>/Front gain'
                                         */
   real_T TravelCounttorad_Gain;        /* Expression: 2*pi/8192
@@ -1276,6 +1295,12 @@ struct P_heli_q8_d3p2_T_ {
                                         */
   uint16_T GameController_BufferSize;  /* Computed Parameter: GameController_BufferSize
                                         * Referenced by: '<S3>/Game Controller'
+                                        */
+  uint8_T ManualSwitch_CurrentSetting; /* Computed Parameter: ManualSwitch_CurrentSetting
+                                        * Referenced by: '<S3>/Manual Switch'
+                                        */
+  uint8_T ManualSwitch2_CurrentSetting;/* Computed Parameter: ManualSwitch2_CurrentSetting
+                                        * Referenced by: '<S3>/Manual Switch2'
                                         */
   uint8_T GameController_ControllerNumber;/* Computed Parameter: GameController_ControllerNumber
                                            * Referenced by: '<S3>/Game Controller'

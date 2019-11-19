@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d6p3".
  *
- * Model version              : 1.147
+ * Model version              : 1.148
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Thu Nov 14 05:45:42 2019
+ * C source code generated on : Sun Nov 17 18:06:11 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -281,7 +281,7 @@ void heli_q8_d6p3_output0(void)        /* Sample time: [0.0s, 0.0s] */
   real_T rtb_HILReadEncoderTimebase_o3;
   real_T rtb_TmpSignalConversionAtToFile[11];
   real_T rtb_TmpSignalConversionAtToFi_n[6];
-  real_T rtb_TmpSignalConversionAtToF_nv[2];
+  real_T rtb_Switch[10];
   t_stream_ptr rtb_StreamCall1_o1;
   t_stream_ptr rtb_StreamFormattedWrite_o1;
   real32_T rtb_StreamRead1_o2[10];
@@ -293,7 +293,6 @@ void heli_q8_d6p3_output0(void)        /* Sample time: [0.0s, 0.0s] */
   static const int8_T I[36] = { 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
     0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1 };
 
-  real_T rtb_Switch[10];
   real_T rtb_Sum3[2];
   int32_T i;
   real_T tmp[25];
@@ -558,21 +557,15 @@ void heli_q8_d6p3_output0(void)        /* Sample time: [0.0s, 0.0s] */
     heli_q8_d6p3_B.Joystick_gain_y = heli_q8_d6p3_P.Gainy_Gain * u0 *
       heli_q8_d6p3_P.Joystick_gain_y;
 
-    /* SignalConversion: '<S16>/TmpSignal ConversionAtF*rInport1' */
-    rtb_TmpSignalConversionAtToF_nv[0] = heli_q8_d6p3_B.Joystick_gain_x;
-    rtb_TmpSignalConversionAtToF_nv[1] = heli_q8_d6p3_B.Joystick_gain_y;
-
-    /* Gain: '<S16>/F*r' */
+    /* Gain: '<S16>/F*r' incorporates:
+     *  SignalConversion: '<S16>/TmpSignal ConversionAtF*rInport1'
+     */
     heli_q8_d6p3_B.Fr[0] = 0.0;
-    heli_q8_d6p3_B.Fr[0] += heli_q8_d6p3_P.F[0] *
-      rtb_TmpSignalConversionAtToF_nv[0];
-    heli_q8_d6p3_B.Fr[0] += heli_q8_d6p3_P.F[2] *
-      rtb_TmpSignalConversionAtToF_nv[1];
+    heli_q8_d6p3_B.Fr[0] += heli_q8_d6p3_P.F[0] * heli_q8_d6p3_B.Joystick_gain_x;
+    heli_q8_d6p3_B.Fr[0] += heli_q8_d6p3_P.F[2] * heli_q8_d6p3_B.Joystick_gain_y;
     heli_q8_d6p3_B.Fr[1] = 0.0;
-    heli_q8_d6p3_B.Fr[1] += heli_q8_d6p3_P.F[1] *
-      rtb_TmpSignalConversionAtToF_nv[0];
-    heli_q8_d6p3_B.Fr[1] += heli_q8_d6p3_P.F[3] *
-      rtb_TmpSignalConversionAtToF_nv[1];
+    heli_q8_d6p3_B.Fr[1] += heli_q8_d6p3_P.F[1] * heli_q8_d6p3_B.Joystick_gain_x;
+    heli_q8_d6p3_B.Fr[1] += heli_q8_d6p3_P.F[3] * heli_q8_d6p3_B.Joystick_gain_y;
 
     /* Sum: '<S2>/Sum1' incorporates:
      *  Constant: '<S2>/Constant2'
@@ -820,33 +813,49 @@ void heli_q8_d6p3_output0(void)        /* Sample time: [0.0s, 0.0s] */
   /* End of MATLAB Function: '<S11>/Kalman prediction step' */
   if (rtmIsMajorTimeStep(heli_q8_d6p3_M)) {
     /* SignalConversion: '<S12>/TmpSignal ConversionAtTo FileInport1' */
-    rtb_TmpSignalConversionAtToF_nv[0] = heli_q8_d6p3_B.x_hat_k1[0];
-    rtb_TmpSignalConversionAtToF_nv[1] = heli_q8_d6p3_B.Sum1;
+    rtb_Switch[0] = heli_q8_d6p3_B.x_hat_k1[1];
+    rtb_Switch[1] = heli_q8_d6p3_B.x_hat_k1[3];
+    rtb_Switch[2] = heli_q8_d6p3_B.x_hat_k1[5];
+    rtb_Switch[3] = heli_q8_d6p3_B.x_hat_k1[0];
+    rtb_Switch[4] = heli_q8_d6p3_B.x_hat_k1[2];
+    rtb_Switch[5] = heli_q8_d6p3_B.PitchTransferFcn;
+    rtb_Switch[6] = heli_q8_d6p3_B.ElevationTransferFcn;
+    rtb_Switch[7] = heli_q8_d6p3_B.TravelTransferFcn;
+    rtb_Switch[8] = heli_q8_d6p3_B.Sum1;
+    rtb_Switch[9] = heli_q8_d6p3_B.Sum2;
 
     /* ToFile: '<S12>/To File' */
     if (rtmIsMajorTimeStep(heli_q8_d6p3_M)) {
       {
         if (!(++heli_q8_d6p3_DW.ToFile_IWORK.Decimation % 1) &&
-            (heli_q8_d6p3_DW.ToFile_IWORK.Count*3)+1 < 100000000 ) {
+            (heli_q8_d6p3_DW.ToFile_IWORK.Count*11)+1 < 100000000 ) {
           FILE *fp = (FILE *) heli_q8_d6p3_DW.ToFile_PWORK.FilePtr;
           if (fp != (NULL)) {
-            real_T u[3];
+            real_T u[11];
             heli_q8_d6p3_DW.ToFile_IWORK.Decimation = 0;
             u[0] = heli_q8_d6p3_M->Timing.t[1];
-            u[1] = rtb_TmpSignalConversionAtToF_nv[0];
-            u[2] = rtb_TmpSignalConversionAtToF_nv[1];
-            if (fwrite(u, sizeof(real_T), 3, fp) != 3) {
+            u[1] = rtb_Switch[0];
+            u[2] = rtb_Switch[1];
+            u[3] = rtb_Switch[2];
+            u[4] = rtb_Switch[3];
+            u[5] = rtb_Switch[4];
+            u[6] = rtb_Switch[5];
+            u[7] = rtb_Switch[6];
+            u[8] = rtb_Switch[7];
+            u[9] = rtb_Switch[8];
+            u[10] = rtb_Switch[9];
+            if (fwrite(u, sizeof(real_T), 11, fp) != 11) {
               rtmSetErrorStatus(heli_q8_d6p3_M,
-                                "Error writing to MAT-file kalman_p_Q0_000001.mat");
+                                "Error writing to MAT-file final_kalman_v_encoder.mat");
               return;
             }
 
-            if (((++heli_q8_d6p3_DW.ToFile_IWORK.Count)*3)+1 >= 100000000) {
+            if (((++heli_q8_d6p3_DW.ToFile_IWORK.Count)*11)+1 >= 100000000) {
               (void)fprintf(stdout,
                             "*** The ToFile block will stop logging data before\n"
                             "    the simulation has ended, because it has reached\n"
                             "    the maximum number of elements (100000000)\n"
-                            "    allowed in MAT-file kalman_p_Q0_000001.mat.\n");
+                            "    allowed in MAT-file final_kalman_v_encoder.mat.\n");
             }
           }
         }
@@ -889,7 +898,7 @@ void heli_q8_d6p3_output0(void)        /* Sample time: [0.0s, 0.0s] */
             u[11] = rtb_TmpSignalConversionAtToFile[10];
             if (fwrite(u, sizeof(real_T), 12, fp) != 12) {
               rtmSetErrorStatus(heli_q8_d6p3_M,
-                                "Error writing to MAT-file Kalman_vs_encoder.mat");
+                                "Error writing to MAT-file Q_11111.mat");
               return;
             }
 
@@ -898,7 +907,7 @@ void heli_q8_d6p3_output0(void)        /* Sample time: [0.0s, 0.0s] */
                             "*** The ToFile block will stop logging data before\n"
                             "    the simulation has ended, because it has reached\n"
                             "    the maximum number of elements (100000000)\n"
-                            "    allowed in MAT-file Kalman_vs_encoder.mat.\n");
+                            "    allowed in MAT-file Q_11111.mat.\n");
             }
           }
         }
@@ -1722,16 +1731,16 @@ void heli_q8_d6p3_initialize(void)
   /* Start for ToFile: '<S12>/To File' */
   {
     FILE *fp = (NULL);
-    char fileName[509] = "kalman_p_Q0_000001.mat";
+    char fileName[509] = "final_kalman_v_encoder.mat";
     if ((fp = fopen(fileName, "wb")) == (NULL)) {
       rtmSetErrorStatus(heli_q8_d6p3_M,
-                        "Error creating .mat file kalman_p_Q0_000001.mat");
+                        "Error creating .mat file final_kalman_v_encoder.mat");
       return;
     }
 
-    if (rt_WriteMat4FileHeader(fp,3,0,"kalman_p_Q0_000001")) {
+    if (rt_WriteMat4FileHeader(fp,11,0,"final_kalman_v_encoder")) {
       rtmSetErrorStatus(heli_q8_d6p3_M,
-                        "Error writing mat file header to file kalman_p_Q0_000001.mat");
+                        "Error writing mat file header to file final_kalman_v_encoder.mat");
       return;
     }
 
@@ -1743,16 +1752,15 @@ void heli_q8_d6p3_initialize(void)
   /* Start for ToFile: '<S5>/To File1' */
   {
     FILE *fp = (NULL);
-    char fileName[509] = "Kalman_vs_encoder.mat";
+    char fileName[509] = "Q_11111.mat";
     if ((fp = fopen(fileName, "wb")) == (NULL)) {
-      rtmSetErrorStatus(heli_q8_d6p3_M,
-                        "Error creating .mat file Kalman_vs_encoder.mat");
+      rtmSetErrorStatus(heli_q8_d6p3_M, "Error creating .mat file Q_11111.mat");
       return;
     }
 
-    if (rt_WriteMat4FileHeader(fp,12,0,"Kalman_vs_encoder")) {
+    if (rt_WriteMat4FileHeader(fp,12,0,"Q_11111")) {
       rtmSetErrorStatus(heli_q8_d6p3_M,
-                        "Error writing mat file header to file Kalman_vs_encoder.mat");
+                        "Error writing mat file header to file Q_11111.mat");
       return;
     }
 
@@ -1959,28 +1967,28 @@ void heli_q8_d6p3_terminate(void)
   {
     FILE *fp = (FILE *) heli_q8_d6p3_DW.ToFile_PWORK.FilePtr;
     if (fp != (NULL)) {
-      char fileName[509] = "kalman_p_Q0_000001.mat";
+      char fileName[509] = "final_kalman_v_encoder.mat";
       if (fclose(fp) == EOF) {
         rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error closing MAT-file kalman_p_Q0_000001.mat");
+                          "Error closing MAT-file final_kalman_v_encoder.mat");
         return;
       }
 
       if ((fp = fopen(fileName, "r+b")) == (NULL)) {
         rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error reopening MAT-file kalman_p_Q0_000001.mat");
+                          "Error reopening MAT-file final_kalman_v_encoder.mat");
         return;
       }
 
-      if (rt_WriteMat4FileHeader(fp, 3, heli_q8_d6p3_DW.ToFile_IWORK.Count,
-           "kalman_p_Q0_000001")) {
+      if (rt_WriteMat4FileHeader(fp, 11, heli_q8_d6p3_DW.ToFile_IWORK.Count,
+           "final_kalman_v_encoder")) {
         rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error writing header for kalman_p_Q0_000001 to MAT-file kalman_p_Q0_000001.mat");
+                          "Error writing header for final_kalman_v_encoder to MAT-file final_kalman_v_encoder.mat");
       }
 
       if (fclose(fp) == EOF) {
         rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error closing MAT-file kalman_p_Q0_000001.mat");
+                          "Error closing MAT-file final_kalman_v_encoder.mat");
         return;
       }
 
@@ -1992,28 +2000,25 @@ void heli_q8_d6p3_terminate(void)
   {
     FILE *fp = (FILE *) heli_q8_d6p3_DW.ToFile1_PWORK.FilePtr;
     if (fp != (NULL)) {
-      char fileName[509] = "Kalman_vs_encoder.mat";
+      char fileName[509] = "Q_11111.mat";
       if (fclose(fp) == EOF) {
-        rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error closing MAT-file Kalman_vs_encoder.mat");
+        rtmSetErrorStatus(heli_q8_d6p3_M, "Error closing MAT-file Q_11111.mat");
         return;
       }
 
       if ((fp = fopen(fileName, "r+b")) == (NULL)) {
-        rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error reopening MAT-file Kalman_vs_encoder.mat");
+        rtmSetErrorStatus(heli_q8_d6p3_M, "Error reopening MAT-file Q_11111.mat");
         return;
       }
 
       if (rt_WriteMat4FileHeader(fp, 12, heli_q8_d6p3_DW.ToFile1_IWORK.Count,
-           "Kalman_vs_encoder")) {
+           "Q_11111")) {
         rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error writing header for Kalman_vs_encoder to MAT-file Kalman_vs_encoder.mat");
+                          "Error writing header for Q_11111 to MAT-file Q_11111.mat");
       }
 
       if (fclose(fp) == EOF) {
-        rtmSetErrorStatus(heli_q8_d6p3_M,
-                          "Error closing MAT-file Kalman_vs_encoder.mat");
+        rtmSetErrorStatus(heli_q8_d6p3_M, "Error closing MAT-file Q_11111.mat");
         return;
       }
 
@@ -2212,10 +2217,10 @@ RT_MODEL_heli_q8_d6p3_T *heli_q8_d6p3(void)
   heli_q8_d6p3_M->Timing.stepSize2 = 0.01;
 
   /* External mode info */
-  heli_q8_d6p3_M->Sizes.checksums[0] = (1960517022U);
-  heli_q8_d6p3_M->Sizes.checksums[1] = (1216546097U);
-  heli_q8_d6p3_M->Sizes.checksums[2] = (2341645190U);
-  heli_q8_d6p3_M->Sizes.checksums[3] = (4226853258U);
+  heli_q8_d6p3_M->Sizes.checksums[0] = (211318812U);
+  heli_q8_d6p3_M->Sizes.checksums[1] = (2543821325U);
+  heli_q8_d6p3_M->Sizes.checksums[2] = (3027620866U);
+  heli_q8_d6p3_M->Sizes.checksums[3] = (1068731606U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

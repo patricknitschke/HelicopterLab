@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d4p1".
  *
- * Model version              : 1.85
+ * Model version              : 1.87
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Wed Nov 13 05:12:48 2019
+ * C source code generated on : Sun Nov 17 12:34:28 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -350,15 +350,17 @@ void heli_q8_d4p1_output0(void)        /* Sample time: [0.0s, 0.0s] */
 
     /* End of Switch: '<S6>/Switch' */
 
-    /* Gain: '<S6>/Gain1' */
+    /* Gain: '<S6>/Gain2' incorporates:
+     *  SignalConversion: '<S6>/TmpSignal ConversionAtGain2Inport1'
+     */
     for (i = 0; i < 3; i++) {
-      heli_q8_d4p1_B.Gain1[i] = 0.0;
-      heli_q8_d4p1_B.Gain1[i] += heli_q8_d4p1_P.Gain1_Gain[i] * rtb_Switch[3];
-      heli_q8_d4p1_B.Gain1[i] += heli_q8_d4p1_P.Gain1_Gain[i + 3] * rtb_Switch[4];
-      heli_q8_d4p1_B.Gain1[i] += heli_q8_d4p1_P.Gain1_Gain[i + 6] * rtb_Switch[5];
+      heli_q8_d4p1_B.Gain2[i] = 0.0;
+      heli_q8_d4p1_B.Gain2[i] += heli_q8_d4p1_P.Gain2_Gain[i] * rtb_Switch[0];
+      heli_q8_d4p1_B.Gain2[i] += heli_q8_d4p1_P.Gain2_Gain[i + 3] * rtb_Switch[2];
+      heli_q8_d4p1_B.Gain2[i] += heli_q8_d4p1_P.Gain2_Gain[i + 6] * rtb_Switch[1];
     }
 
-    /* End of Gain: '<S6>/Gain1' */
+    /* End of Gain: '<S6>/Gain2' */
 
     /* Sum: '<S2>/Sum2' incorporates:
      *  Constant: '<S2>/Constant4'
@@ -373,11 +375,11 @@ void heli_q8_d4p1_output0(void)        /* Sample time: [0.0s, 0.0s] */
 
     /* SignalConversion: '<Root>/TmpSignal ConversionAtTo FileInport1' */
     rtb_TmpSignalConversionAtToFile[0] = heli_q8_d4p1_B.Sum1;
-    rtb_TmpSignalConversionAtToFile[1] = heli_q8_d4p1_B.Gain1[0];
+    rtb_TmpSignalConversionAtToFile[1] = heli_q8_d4p1_B.Gain2[0];
     rtb_TmpSignalConversionAtToFile[2] = heli_q8_d4p1_B.Sum2;
-    rtb_TmpSignalConversionAtToFile[3] = heli_q8_d4p1_B.Gain1[1];
+    rtb_TmpSignalConversionAtToFile[3] = heli_q8_d4p1_B.Gain2[1];
     rtb_TmpSignalConversionAtToFile[4] = heli_q8_d4p1_B.TravelCounttorad;
-    rtb_TmpSignalConversionAtToFile[5] = heli_q8_d4p1_B.Gain1[2];
+    rtb_TmpSignalConversionAtToFile[5] = heli_q8_d4p1_B.Gain2[2];
 
     /* ToFile: '<Root>/To File' */
     if (rtmIsMajorTimeStep(heli_q8_d4p1_M)) {
@@ -397,7 +399,7 @@ void heli_q8_d4p1_output0(void)        /* Sample time: [0.0s, 0.0s] */
             u[6] = rtb_TmpSignalConversionAtToFile[5];
             if (fwrite(u, sizeof(real_T), 7, fp) != 7) {
               rtmSetErrorStatus(heli_q8_d4p1_M,
-                                "Error writing to MAT-file Gyro_90deg.mat");
+                                "Error writing to MAT-file tests.mat");
               return;
             }
 
@@ -406,7 +408,7 @@ void heli_q8_d4p1_output0(void)        /* Sample time: [0.0s, 0.0s] */
                             "*** The ToFile block will stop logging data before\n"
                             "    the simulation has ended, because it has reached\n"
                             "    the maximum number of elements (100000000)\n"
-                            "    allowed in MAT-file Gyro_90deg.mat.\n");
+                            "    allowed in MAT-file tests.mat.\n");
             }
           }
         }
@@ -1122,16 +1124,15 @@ void heli_q8_d4p1_initialize(void)
   /* Start for ToFile: '<Root>/To File' */
   {
     FILE *fp = (NULL);
-    char fileName[509] = "Gyro_90deg.mat";
+    char fileName[509] = "tests.mat";
     if ((fp = fopen(fileName, "wb")) == (NULL)) {
-      rtmSetErrorStatus(heli_q8_d4p1_M,
-                        "Error creating .mat file Gyro_90deg.mat");
+      rtmSetErrorStatus(heli_q8_d4p1_M, "Error creating .mat file tests.mat");
       return;
     }
 
-    if (rt_WriteMat4FileHeader(fp,7,0,"Gyro_90deg")) {
+    if (rt_WriteMat4FileHeader(fp,7,0,"acc_90deg_anticlock")) {
       rtmSetErrorStatus(heli_q8_d4p1_M,
-                        "Error writing mat file header to file Gyro_90deg.mat");
+                        "Error writing mat file header to file tests.mat");
       return;
     }
 
@@ -1307,28 +1308,25 @@ void heli_q8_d4p1_terminate(void)
   {
     FILE *fp = (FILE *) heli_q8_d4p1_DW.ToFile_PWORK.FilePtr;
     if (fp != (NULL)) {
-      char fileName[509] = "Gyro_90deg.mat";
+      char fileName[509] = "tests.mat";
       if (fclose(fp) == EOF) {
-        rtmSetErrorStatus(heli_q8_d4p1_M,
-                          "Error closing MAT-file Gyro_90deg.mat");
+        rtmSetErrorStatus(heli_q8_d4p1_M, "Error closing MAT-file tests.mat");
         return;
       }
 
       if ((fp = fopen(fileName, "r+b")) == (NULL)) {
-        rtmSetErrorStatus(heli_q8_d4p1_M,
-                          "Error reopening MAT-file Gyro_90deg.mat");
+        rtmSetErrorStatus(heli_q8_d4p1_M, "Error reopening MAT-file tests.mat");
         return;
       }
 
       if (rt_WriteMat4FileHeader(fp, 7, heli_q8_d4p1_DW.ToFile_IWORK.Count,
-           "Gyro_90deg")) {
+           "acc_90deg_anticlock")) {
         rtmSetErrorStatus(heli_q8_d4p1_M,
-                          "Error writing header for Gyro_90deg to MAT-file Gyro_90deg.mat");
+                          "Error writing header for acc_90deg_anticlock to MAT-file tests.mat");
       }
 
       if (fclose(fp) == EOF) {
-        rtmSetErrorStatus(heli_q8_d4p1_M,
-                          "Error closing MAT-file Gyro_90deg.mat");
+        rtmSetErrorStatus(heli_q8_d4p1_M, "Error closing MAT-file tests.mat");
         return;
       }
 
@@ -1494,10 +1492,10 @@ RT_MODEL_heli_q8_d4p1_T *heli_q8_d4p1(void)
   heli_q8_d4p1_M->Timing.stepSize2 = 0.01;
 
   /* External mode info */
-  heli_q8_d4p1_M->Sizes.checksums[0] = (574002560U);
-  heli_q8_d4p1_M->Sizes.checksums[1] = (2608879045U);
-  heli_q8_d4p1_M->Sizes.checksums[2] = (775904503U);
-  heli_q8_d4p1_M->Sizes.checksums[3] = (467690398U);
+  heli_q8_d4p1_M->Sizes.checksums[0] = (1963427590U);
+  heli_q8_d4p1_M->Sizes.checksums[1] = (1360091634U);
+  heli_q8_d4p1_M->Sizes.checksums[2] = (1268690465U);
+  heli_q8_d4p1_M->Sizes.checksums[3] = (2416171161U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -1527,9 +1525,9 @@ RT_MODEL_heli_q8_d4p1_T *heli_q8_d4p1(void)
 
   {
     heli_q8_d4p1_B.Sum1 = 0.0;
-    heli_q8_d4p1_B.Gain1[0] = 0.0;
-    heli_q8_d4p1_B.Gain1[1] = 0.0;
-    heli_q8_d4p1_B.Gain1[2] = 0.0;
+    heli_q8_d4p1_B.Gain2[0] = 0.0;
+    heli_q8_d4p1_B.Gain2[1] = 0.0;
+    heli_q8_d4p1_B.Gain2[2] = 0.0;
     heli_q8_d4p1_B.Sum2 = 0.0;
     heli_q8_d4p1_B.TravelCounttorad = 0.0;
     heli_q8_d4p1_B.ElevationTransferFcn = 0.0;
@@ -1646,7 +1644,7 @@ RT_MODEL_heli_q8_d4p1_T *heli_q8_d4p1(void)
   heli_q8_d4p1_M->Sizes.numU = (0);    /* Number of model inputs */
   heli_q8_d4p1_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   heli_q8_d4p1_M->Sizes.numSampTimes = (3);/* Number of sample times */
-  heli_q8_d4p1_M->Sizes.numBlocks = (59);/* Number of blocks */
+  heli_q8_d4p1_M->Sizes.numBlocks = (60);/* Number of blocks */
   heli_q8_d4p1_M->Sizes.numBlockIO = (15);/* Number of block outputs */
   heli_q8_d4p1_M->Sizes.numBlockPrms = (411);/* Sum of parameter "widths" */
   return heli_q8_d4p1_M;

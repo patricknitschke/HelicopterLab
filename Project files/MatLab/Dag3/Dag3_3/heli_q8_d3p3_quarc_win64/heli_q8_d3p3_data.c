@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d3p3".
  *
- * Model version              : 1.78
+ * Model version              : 1.85
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Tue Nov 12 07:27:15 2019
+ * C source code generated on : Sun Nov 17 16:20:15 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -26,7 +26,7 @@ P_heli_q8_d3p3_T heli_q8_d3p3_P = {
   /*  Variable: F
    * Referenced by: '<S5>/F*r'
    */
-  { 0.0, 1.0, 1.0, 0.0 },
+  { 0.0, 14.709358103568221, 11.630288962835019, 0.0 },
   3.0,                                 /* Variable: Joystick_gain_x
                                         * Referenced by: '<S3>/Joystick_gain_x'
                                         */
@@ -37,10 +37,10 @@ P_heli_q8_d3p3_T heli_q8_d3p3_P = {
   /*  Variable: K
    * Referenced by: '<S5>/K*x'
    */
-  { -2.0900594270496513E-16, 2.8694112774233331, -1.6273376415811332E-16,
-    3.3667605395020992, 5.2866242754973367, -7.0787543633383739E-16,
-    -1.6149236967528464E-16, 0.99999999999999789, 1.195228609334394,
-    -2.1324310520995979E-16 },
+  { 7.4818142128555662E-16, 7.35467905178411, 6.9529420907525863E-16,
+    5.7859775406009222, 5.8151444814175095, 2.7004103372670395E-15,
+    1.0626490336457805E-16, 0.35355339059327323, 0.44721359549995715,
+    -1.6514584083658667E-17 },
   10.0,                                /* Mask Parameter: HILInitialize_analog_input_maxi
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
@@ -259,6 +259,15 @@ P_heli_q8_d3p3_T heli_q8_d3p3_P = {
   0,                                   /* Mask Parameter: HILInitialize_set_pwm_params__f
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
+  5.0,                                 /* Expression: 5
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
+  -0.2,                                /* Expression: -0.2
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
+  0.4,                                 /* Expression: 0.4
+                                        * Referenced by: '<S3>/p_c1'
+                                        */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S3>/Rate Transition: x'
                                         */
@@ -271,11 +280,20 @@ P_heli_q8_d3p3_T heli_q8_d3p3_P = {
   1.1111111111111112,                  /* Expression: 10/9
                                         * Referenced by: '<S3>/Gain: x'
                                         */
-  0.095,                               /* Expression: 0.095
+  0.0,                                 /* Expression: 0
                                         * Referenced by: '<S2>/Constant2'
                                         */
   -0.0015339807878856412,              /* Expression: -2*pi /4096
                                         * Referenced by: '<S2>/Pitch: Count to rad'
+                                        */
+  5.0,                                 /* Expression: 5
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
+  -0.1,                                /* Expression: -0.1
+                                        * Referenced by: '<S3>/edot_c1'
+                                        */
+  0.3,                                 /* Expression: 0.3
+                                        * Referenced by: '<S3>/edot_c1'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S3>/Rate Transition: y'
@@ -353,6 +371,12 @@ P_heli_q8_d3p3_T heli_q8_d3p3_P = {
                                         */
   12U,                                 /* Computed Parameter: GameController_BufferSize
                                         * Referenced by: '<S3>/Game Controller'
+                                        */
+  1U,                                  /* Computed Parameter: ManualSwitch_CurrentSetting
+                                        * Referenced by: '<S3>/Manual Switch'
+                                        */
+  0U,                                  /* Computed Parameter: ManualSwitch2_CurrentSetting
+                                        * Referenced by: '<S3>/Manual Switch2'
                                         */
   1U,                                  /* Computed Parameter: GameController_ControllerNumber
                                         * Referenced by: '<S3>/Game Controller'

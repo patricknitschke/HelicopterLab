@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8_d3p3".
  *
- * Model version              : 1.78
+ * Model version              : 1.85
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Tue Nov 12 07:27:15 2019
+ * C source code generated on : Sun Nov 17 16:20:15 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -100,11 +100,11 @@ static DataTypeTransition rtPTransitions[] = {
 
   { (char_T *)(&heli_q8_d3p3_P.HILInitialize_active), 8, 0, 35 },
 
-  { (char_T *)(&heli_q8_d3p3_P.RateTransitionx_X0), 0, 0, 31 },
+  { (char_T *)(&heli_q8_d3p3_P.p_c1_Time), 0, 0, 37 },
 
   { (char_T *)(&heli_q8_d3p3_P.GameController_BufferSize), 5, 0, 1 },
 
-  { (char_T *)(&heli_q8_d3p3_P.GameController_ControllerNumber), 3, 0, 1 },
+  { (char_T *)(&heli_q8_d3p3_P.ManualSwitch_CurrentSetting), 3, 0, 3 },
 
   { (char_T *)(&heli_q8_d3p3_P.HILReadEncoderTimebase_Active), 8, 0, 4 }
 };
